@@ -71,5 +71,7 @@
     "You are receiving this email because we received a password reset request for your account.": "パスワード再設定のリクエストを受け付けました。",
     "You're logged in!": "ログイン成功",
     "Your email address is unverified.": "メールアドレスが未認証です。",
-    "Log In": "ログイン"
+    "Log In": "ログイン",
+    "Sign Up": "アカウント登録",
+    "Create Post": "記事を登録"
 }

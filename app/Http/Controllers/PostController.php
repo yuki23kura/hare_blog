@@ -35,7 +35,8 @@ class PostController extends Controller
         $post->user_id = $request->user()->id;
 
         $file = $request->file('image');
-        $post->image = date('YmdHis') . '_' . $file->getClientOriginalName();
+        //自分のファイルの関数を参照
+        $post->image = self::createFileName($file);
 
         // トランザクション開始
         DB::beginTransaction();
@@ -99,7 +100,7 @@ class PostController extends Controller
         if ($file) {
             // 削除するファイル名の保持
             $delete_file_path = 'images/posts/' . $post->image;
-            $post->image = date('YmdHis') . '_' . $file->getClientOriginalName();
+            $post->image = self::createFileName($file);
         }
         $post->fill($request->all());
 
@@ -144,5 +145,10 @@ class PostController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+    // ファイル名のリネームの関数 このファイル内でしか使用しないのでprivate static
+    private static function createFileName($file)
+    {
+        return date('YmdHis') . '_' . $file->getClientOriginalName();
     }
 }

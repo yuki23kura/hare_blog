@@ -66,7 +66,10 @@ class PostController extends Controller
      */
     public function show(string $id)
     {
-        //
+        //idを元にpostクラスのfindメソッドを使用してデータを取得
+        $post = Post::find($id);
+        //compact('post') == ['post' => $post] 
+        return view('posts.show',compact('post'));
     }
 
     /**

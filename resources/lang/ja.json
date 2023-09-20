@@ -73,5 +73,5 @@
     "Your email address is unverified.": "メールアドレスが未認証です。",
     "Log In": "ログイン",
     "Sign Up": "アカウント登録",
-    "Create Post": "記事を登録"
+    "pagination": ":total件中,:from~:to件表示"
 }

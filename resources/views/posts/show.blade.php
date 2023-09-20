@@ -7,6 +7,19 @@
             </div>
         @endif
 
+        @if ($errors->any())
+            <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 my-2" role="alert">
+                <p>
+                    <b>{{ count($errors) }}件のエラーがあります。</b>
+                </p>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <article class="mb-2">
             <h2 class="font-bold font-sans break-normal text-gray-900 pt-6 pb-1 text-3xl md:text-4xl break-words">
                 {{ $post->title }}</h2>

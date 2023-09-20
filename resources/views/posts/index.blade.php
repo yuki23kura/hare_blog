@@ -1,5 +1,12 @@
 <x-app-layout>
     <div class="container max-w-7xl mx-auto px-4 md:px-12 pb-3 mt-3">
+
+        @if (session('notice'))
+            <div class="bg-blue-100 border-blue-500 text-blue-700 border-l-4 p-4 my-2">
+                {{ session('notice') }}
+            </div>
+        @endif
+
         <div class="flex flex-wrap -mx-1 lg:-mx-4 mb-4">
             @foreach ($posts as $post)
                 <article class="w-full px-4 md:w-1/2 text-xl text-gray-800 leading-normal">

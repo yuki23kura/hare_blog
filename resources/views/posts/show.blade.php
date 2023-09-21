@@ -2,7 +2,6 @@
     <div class="container lg:w-3/4 md:w-4/5 w-11/12 mx-auto my-8 px-8 py-4 bg-white shadow-md">
 
         <x-flash-message :message="session('notice')" />
-
         <x-validation-errors :errors="$errors" />
 
         <article class="mb-2">
@@ -31,7 +30,6 @@
                 </form>
             @endcan
         </div>
-        
         @auth
             <hr class="my-4">
 
@@ -41,5 +39,15 @@
             </div>
         @endauth
 
+        <section class="font-sans break-normal text-gray-900 ">
+            @foreach ($comments as $comment)
+                <div class="my-2">
+                    <span class="font-bold mr-3">{{ $comment->user->name }}</span>
+                    <span class="text-sm">{{ $comment->created_at }}</span>
+                    <p class="brake-all">{!! nl2br(e($comment->body)) !!}</p>
+                </div>
+                <hr>
+            @endforeach
+        </section>
     </div>
 </x-app-layout>

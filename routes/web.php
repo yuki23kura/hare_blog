@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Comment;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,5 +36,9 @@ Route::resource('posts',PostController::class)
 
 Route::resource('posts',PostController::class)
     ->only(['index','show']);
+
+Route::resource('posts.comments',CommentController::class)
+    ->only(['create','store','edit','update','destroy'])
+    ->middleware('auth');
 
 require __DIR__.'/auth.php';
